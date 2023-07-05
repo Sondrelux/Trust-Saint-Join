@@ -1,14 +1,86 @@
 <!DOCTYPE html>
 <html>
-<body>
-    <ul>
-        <li><a href="default.asp">Home</a></li>
-        <li><a href="news.asp">News</a></li>
-        <li><a href="contact.asp">Contact</a></li>
-        <li><a href="about.asp">About</a></li>
-    </ul>
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+<head>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            background-color:aqua; 
+            height: 50px; 
+            width: 100%;
+        }
+        .navigation-bar{
+            background-color:brown; 
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .nav-main-item{
+            background-color: blueviolet;
+            height: 100px;
+            width: 180px;
+            border: 2 solid black;
+            align-items: center;
+            text-align: center;
+            flex: 25%;
+        }
+        .nav-main-title{
+            align-self: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            position: relative;
+            font-size: 40px;
+        }
+        .nav-item{
+            background-color: darkgoldenrod;
+            height: 80px;
+            width: 60px;
+            flex: 15%;
+        }
+        .nav-logo{
+            background-color: darkgreen;
+            height: 80px;
+            width: 80px;
+            flex: 20%;
+        }
+        @media (max-width: 800px) {
+            .nav-main-item, .nav-item, .nav-logo {
+                flex: 100%;
+            }
+        }
 
+    </style>
+</head>
+<body>
+    <div class="header">
+    </div>
+    <div class="navigation-bar" style="background-color:brown; height: 150px; width: 100%;">
+        <div class="nav-main-item">
+            <a href="default.asp" class="nav-main-title">Home</a>
+        </div>
+        <div class="nav-item">
+            <a href="news.asp">News</a>
+        </div>
+        <div class="nav-item">
+            <a href="contact.asp">Contact</a>
+        </div>
+        <div class="nav-item">
+            <a href="about.asp">About</a>
+        </div>
+        <div class="nav-logo">
+
+        </div>
+    </div>
+    <div class="content">
+        <h1>My First Heading</h1>
+        <p>My first paragraph.</p>
+    </div>
+    <div class="footer" >
+    </div>
+    <script>
+
+    </script>
 </body>
 </html>
