@@ -1,22 +1,351 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Cup of the week</title>
+    <title>Just transition</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: 'Calibri', 'Trebuchet MS', sans-serif;
+        }
+        a{
+            text-decoration: none;
+            top: 20px;
+        }
+        .header{
+            background-color: rgba(180, 180, 180, 1); 
+            height: 35px; 
+            width: 100%;
+            align-items: right;
+        }
+        .icons{
+            width: 15px;
+            margin: 10px;
+        }
+        .navigation-bar{
+            background-color: rgba(165, 42, 42, 0); 
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            background: rgb(131,58,180);
+            background: linear-gradient(0deg, #E6FAEC 0%, #E6FAEC 50%, #E6FAEC 100%);
+        }
+        .nav-main-item{
+            background-color: rgba(256, 256, 256, 0);
+            height: 70px;
+            width: 180px;
+            border: 2 solid black;
+            align-items: center;
+            text-align: center;
+            flex: 25%;
+            display: block;
+        }
+        .nav-main-title{
+            color: rgba(256, 18, 67, 1);
+            align-self: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            position: relative;
+            font-size: 30px;
+            
+        }
+        .nav-main-title:hover{
+            color: rgba(80, 80, 80, 1);
+        }
+        .nav-item{
+            /* color: rgba(256, 18, 67, 1);
+            align-self: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            position: relative;
+            font-size: 40px; */
+            background-color: rgba(256, 256, 256, 0);
+            height: 80px;
+            width: 60px;
+            flex: 15%;
+            top: 0px;
+            align-items: center;
+            text-align: center;
+            font-size: 30px;
+            display: block;
+            padding: 0px;
+        }
+        /* .nav-item:hover{
+            color: #007079;
+        } */
+        .nav-item-title{
+            color: rgba(256, 18, 67, 1);
+            align-self: center;
+            vertical-align: middle;
+            margin: 0 auto;
+            position: relative;
+            font-size: 30px;
+        }
+        .nav-logo{
+            background-color: rgba(256, 256, 256, 0);
+            height: 80px;
+            width: 80px;
+            flex: 20%;
+        }
+        .nav-logo-image{
+            width: 80px;
+            margin: 10px 40px;
+        }
+        .story1-title{
+            /* text-align: center; */
+            font-size: 20px;
+        }
+        .language {
+            width: 50px;
+            height: 29px;
+            background-color: rgb(233, 107, 98);
+            color: white;
+            padding: 2px 8px;
+            font-size: 9px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            align-self: center;
+            text-align: center;
+            right: 3px;
+            position: absolute;
+            top: 3px;
+            transition: background-color 0.3s ease;
+          }
+          
+        
+        .main-title-story{
+            /* text-align: center; */
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .icon {
+            height: 1em;
+            margin-right: 10px;
+        }
+        .story1-paragraph{
+            /* text-align: center; */
+            font-size: 14px;
+            margin: 20px;
+        }
+        .content {
+            display: block;   /* Display the content in a flex container */
+            align-items: center;   /* Align items vertically in the center */
+            margin: 10px 200px;
+        }
+
+        .content-stories{
+            display: flex;
+            flex-wrap: wrap;
+
+        }
+
+        .content-stories-quiz{
+        
+        }
+        .content-stories-story{
+            padding: 40px 20px;
+        }
+
+        .photo {
+            display: flex;
+            flex-wrap: wrap;
+            /* flex: 0 0 auto;  Set the photo column to a fixed size */
+            /* margin-right: 20px;   Add spacing between the photo and text */
+        }
+
+        .text {
+            flex: 1;   /* Allow the text column to take up remaining space */
+        }
+
+        .icon {
+            width: 40px;
+        }
+        @media (max-width: 1000px) {
+            .nav-main-item, .nav-item, .nav-logo {
+                flex: 100%;
+            }
+            .navigation-bar{
+                height: 340px;
+                overflow:hidden;
+            }
+            .content{
+                margin: 10px 20px;
+            }
+        }
+
+    </style>
 </head>
 <body>
-    <div id="ukensBonde">
-        <h1>Ukens bonde</h1>
-        <img id="imgUkensBonde" src="ukensBonde.png" alt="Ukens bonde">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+    <div class="header">
+        <img class="icons" src="icons/bell-svgrepo-com.svg"></img>
+        <img class="icons" src="icons/bubble-square-svgrepo-com.svg"></img>
+        <img class="icons" src="icons/disc-svgrepo-com.svg"></img>
+        <img class="icons" src="icons/download-svgrepo-com.svg"></img>
+        <img class="icons" src="icons/mail-svgrepo-com.svg"></img>
+        <img class="icons" src="icons/navigation-ne-svgrepo-com.svg"></img>
+        <button class="language" onClick = "toggleLanguage" id="language">English</button>
     </div>
-    <div id="ukensQuiz">
-        <h1>Ukens quiz</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+    <div class="navigation-bar">
+        <div class="nav-main-item" style="margin: 15px">
+            <!-- <a href="default.asp" class="nav-main-title">Home</a> -->
+            <img src="home_icon.png" alt="home" style="width: 60px">
+        </div>
+        <div class="nav-item">
+            <a href="news.asp" class="nav-item-title">News</a>
+        </div>
+        <div class="nav-item">
+            <a href="contact.asp" class="nav-item-title">Contact</a>
+        </div>
+        <div class="nav-item">
+            <a href="about.asp" class="nav-item-title">About</a>
+        </div>
+        <div class="nav-logo">
+            <img class="nav-logo-image" src="EQNR-ab4fcb91.png">
+        </div>
+        
     </div>
+    <div class="content">
+        <div class="photo">
+            <img src="DSC05218.jpg" style="width: 200px; flex:50%;" alt="Drit" >
+            <img src="Irene Rummelhoff-1.jpg" style="width: 200px; flex: 50%;" alt="Drit">
+        </div>
+        <div class="content-stories">
+            <div class="content-stories-story"> 
+                <div class="photo">
+                    <img src="OJB_4410.jpg" style="width: 30%" alt="Ole Jørgen Bratland / ©Equinor">
+                </div>
+                <div class="text">
+                <h1 class="main-title-story"> <img src="transition_icon.png" alt="Icon" class="icon">
+                    Success Transition story </h1>
+                
 
-    <script src="main.js"></script>
+                <h2 class="story1-title">Kari changed career path from oil to renewables</h2>
+                <p class="story1-paragraph">Kari, a 40-year-old professional, embarked on a remarkable journey that showcased the transformative power of embracing renewable energy. Working for a Equinor, she witnessed the company's dual focus on oil and gas alongside their burgeoning commitment to renewables. Motivated by a desire to contribute to a sustainable future, Kari made a courageous decision to transition from oil and gas engineering to renewable energy. In an exclusive interview, she revealed her deep conviction that she could make a positive impact on our planet's well-being.</p>
+                <p class="story1-paragraph">Kari's shift to renewables proved to be an invigorating adventure. Surrounded by like-minded individuals, she discovered the untapped potential within the renewable energy sector. Drawing upon her engineering expertise, she optimized processes and championed sustainable practices, pushing the boundaries of innovation. Despite initial skepticism, Kari's unwavering determination and passion shone through. Her transformative journey inspired both colleagues and the wider industry to consider new horizons. She encouraged her fellow oil and gas professionals to embrace change and explore the immense opportunities in renewable energy. </p>
+                <p class="story1-paragraph">Kari's story exemplifies the immense potential for personal and collective growth when individuals challenge conventional norms. Her decision to join the ranks of renewable energy pioneers within her company stands as a testament to the positive future that can emerge when companies evolve and embrace sustainable practices. In the pursuit of a greener and more sustainable world, let Kari's journey inspire us all to embrace change and become catalysts for positive transformation. Together, we can shape a future that harmonizes economic progress with environmental stewardship. </p>
+                <p class="story1-paragraph">Remember, it is never too late to embark on a new path and make a difference. The power to create a better world lies within each one of us. </p>
+               
+            </div>
+            </div>
+            <div class="content-stories-quiz">
+                <form>
+                    <h1><img src="game_icon.png" alt="Icon" class="icon">
+                        Quiz</h1>
+                    <form>
+                      <h2>Question 1:</h2>
+                      <p>What is the capital city of Australia?</p>
+                      
+                      <input type="radio" id="q1a" name="q1" value="a">
+                      <label for="q1a">Sydney</label><br>
+                      
+                      <input type="radio" id="q1b" name="q1" value="b">
+                      <label for="q1b">Melbourne</label><br>
+                      
+                      <input type="radio" id="q1c" name="q1" value="c">
+                      <label for="q1c">Canberra</label><br>
+                      
+                      <input type="radio" id="q1d" name="q1" value="d">
+                      <label for="q1d">Perth</label><br>
+                      
+                      <h2>Question 2:</h2>
+                      <p>What does the term "just transition" refer to?</p>
+                      
+                      <input type="radio" id="q2a" name="q2" value="a">
+                      <label for="q2a">Ensuring a fair distribution of wealth in society</label><br>
+                      
+                      <input type="radio" id="q2b" name="q2" value="b">
+                      <label for="q2b">Transitioning from fossil fuel-based industries to sustainable and equitable alternatives  </label><br>
+                      
+                      <input type="radio" id="q2c" name="q2" value="c">
+                      <label for="q2c">Providing tax breaks to corporations for environmental initiatives  </label><br>
+                      
+                      <input type="radio" id="q2d" name="q2" value="d">
+                      <label for="q2d">Just make the energy transition ASAP</label><br>
+                      
+                      <h2>Question 3:</h2>
+                      <p>What is the chemical symbol for gold?</p>
+                      
+                      <input type="radio" id="q3a" name="q3" value="a">
+                      <label for="q3a">Au</label><br>
+                      
+                      <input type="radio" id="q3b" name="q3" value="b">
+                      <label for="q3b">Ag</label><br>
+                      
+                      <input type="radio" id="q3c" name="q3" value="c">
+                      <label for="q3c">Hg</label><br>
+                      
+                      <input type="radio" id="q3d" name="q3" value="d">
+                      <label for="q3d">Pt</label><br>
+
+                      <h2>Question 4:</h2>
+                      <p>What is the primary component of natural gas?</p>
+                      
+                      <input type="radio" id="q4a" name="q4" value="a">
+                      <label for="q4a">Methane</label><br>
+                      
+                      <input type="radio" id="q4b" name="q4" value="b">
+                      <label for="q4b">Ethane</label><br>
+                      
+                      <input type="radio" id="q4c" name="q4" value="c">
+                      <label for="q4c">Propane</label><br>
+                      
+                      <input type="radio" id="q4d" name="q4" value="d">
+                      <label for="q4d">Butane</label><br>
+
+                      <h2>Question 5:</h2>
+                      <p>What are the key elements of a just transition?</p>
+                      
+                      <input type="radio" id="q5a" name="q5" value="a">
+                      <label for="q5a">Economic growth and profit maximization</label><br>
+                      
+                      <input type="radio" id="q5b" name="q5" value="b">
+                      <label for="q5b">Environmental conservation and renewable energy adoption</label><br>
+                      
+                      <input type="radio" id="q5c" name="q5" value="c">
+                      <label for="q5c">Social protection, job creation, community engagement, equity, and environmental sustainability  </label><br>
+                      
+                      <input type="radio" id="q4d" name="q4" value="d">
+                      <label for="q5d">Fossil fuel subsidies and deregulation</label><br>
+                      
+                      <h2>Question 6:</h2>
+                      <p>What is the largest ocean on Earth?  </p>
+                      
+                      <input type="radio" id="q6a" name="q6" value="a">
+                      <label for="q6a">Pacific Ocean</label><br>
+                      
+                      <input type="radio" id="q6b" name="q6" value="b">
+                      <label for="q6b">Atlantic Ocean </label><br>
+                      
+                      <input type="radio" id="q6c" name="q6" value="c">
+                      <label for="q6c">Indian Ocean </label><br>
+                      
+                      <input type="radio" id="q6d" name="q6" value="d">
+                      <label for="q6d">Arctic Ocean </label><br>
+                      <br>
+                
+                      <input type="submit" value="Submit">
+                    </form>
+                
+            </div> 
+        </div> 
+    </div>
+    <div class="footer" >
+    </div>
+  
+    <script>
+        function toggleLanguage() {
+            var btn = document.getElementById("language");
+
+            if (btn.innerHTML === "English") {
+                btn.innerHTML = "Norwegian";
+            } else {
+                btn.innerHTML = "English";
+            }
+        }
+        
+
+    </script>
 </body>
 </html>
